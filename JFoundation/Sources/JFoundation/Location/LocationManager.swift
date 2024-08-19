@@ -9,8 +9,9 @@ public protocol LocationManagerProtocol {
 	var currentStatus: CurrentValueSubject<LocationAuthorizationStatus, Never> { get }
 	var currentLocation: CurrentValueSubject<CLLocation?, Never> { get }
 
-	func startTracking(within: Double)
+	func startTracking(within: Double, backgroundUpdates: Bool)
 	func stopTracking()
+	func requestAuthorizationIfNeeded()
 }
 
 public class LocationManager: NSObject, LocationManagerProtocol {
@@ -25,13 +26,12 @@ public class LocationManager: NSObject, LocationManagerProtocol {
 		self.currentLocation = .init(nil)
     super.init()
     self.nativeLocationManager.delegate = self
-    requestAuthorizationIfNeeded()
   }
 	
-	public func startTracking(within: Double) {
-		nativeLocationManager.allowsBackgroundLocationUpdates = true
+	public func startTracking(within: Double, backgroundUpdates: Bool) {
+		nativeLocationManager.allowsBackgroundLocationUpdates = backgroundUpdates
 		nativeLocationManager.distanceFilter = within
-		nativeLocationManager.pausesLocationUpdatesAutomatically = false
+		nativeLocationManager.pausesLocationUpdatesAutomatically = true
 		nativeLocationManager.startUpdatingLocation()
 	}
 	
@@ -39,7 +39,7 @@ public class LocationManager: NSObject, LocationManagerProtocol {
 		nativeLocationManager.stopUpdatingLocation()
 	}
 
-  private func requestAuthorizationIfNeeded() {
+  public func requestAuthorizationIfNeeded() {
     nativeLocationManager.requestWhenInUseAuthorization()
   }
 }

@@ -4,11 +4,4 @@
    <FileRef
       location = "group:JCanyon.xcodeproj">
    </FileRef>
-   <Group
-      location = "group:"
-      name = "Packages">
-      <FileRef
-         location = "group:JFoundation">
-      </FileRef>
-   </Group>
 </Workspace>

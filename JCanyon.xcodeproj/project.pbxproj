@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C25852612C6F875E00B0521C /* JCanyonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25852602C6F875E00B0521C /* JCanyonApp.swift */; };
-		C25852632C6F875E00B0521C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25852622C6F875E00B0521C /* ContentView.swift */; };
+		C25852632C6F875E00B0521C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25852622C6F875E00B0521C /* HomeView.swift */; };
 		C25852652C6F876300B0521C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C25852642C6F876300B0521C /* Assets.xcassets */; };
 		C25852682C6F876300B0521C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C25852672C6F876300B0521C /* Preview Assets.xcassets */; };
 		C25852722C6F876300B0521C /* JCanyonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25852712C6F876300B0521C /* JCanyonTests.swift */; };
+		C2C863E82C73518B002B33FB /* JUI in Frameworks */ = {isa = PBXBuildFile; productRef = C2C863E72C73518B002B33FB /* JUI */; };
+		C2C863EA2C73518F002B33FB /* JFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = C2C863E92C73518F002B33FB /* JFoundation */; };
+		C2C863EC2C736939002B33FB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C863EB2C736939002B33FB /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,13 +37,15 @@
 /* Begin PBXFileReference section */
 		C258525D2C6F875E00B0521C /* JCanyon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCanyon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C25852602C6F875E00B0521C /* JCanyonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCanyonApp.swift; sourceTree = "<group>"; };
-		C25852622C6F875E00B0521C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C25852622C6F875E00B0521C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C25852642C6F876300B0521C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C25852672C6F876300B0521C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C258526D2C6F876300B0521C /* JCanyonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCanyonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C25852712C6F876300B0521C /* JCanyonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCanyonTests.swift; sourceTree = "<group>"; };
 		C25852772C6F876300B0521C /* JCanyonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCanyonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C863E32C6F89B8002B33FB /* JFoundation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JFoundation; sourceTree = "<group>"; };
+		C2C863E52C734BE9002B33FB /* JUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JUI; sourceTree = "<group>"; };
+		C2C863EB2C736939002B33FB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C863EA2C73518F002B33FB /* JFoundation in Frameworks */,
+				C2C863E82C73518B002B33FB /* JUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +82,7 @@
 				C258525F2C6F875E00B0521C /* JCanyon */,
 				C25852702C6F876300B0521C /* JCanyonTests */,
 				C258525E2C6F875E00B0521C /* Products */,
+				C2C863E62C73518B002B33FB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,8 +99,8 @@
 		C258525F2C6F875E00B0521C /* JCanyon */ = {
 			isa = PBXGroup;
 			children = (
+				C2C863E42C734BBB002B33FB /* Home */,
 				C25852602C6F875E00B0521C /* JCanyonApp.swift */,
-				C25852622C6F875E00B0521C /* ContentView.swift */,
 				C25852642C6F876300B0521C /* Assets.xcassets */,
 				C25852662C6F876300B0521C /* Preview Content */,
 			);
@@ -119,8 +127,25 @@
 			isa = PBXGroup;
 			children = (
 				C2C863E32C6F89B8002B33FB /* JFoundation */,
+				C2C863E52C734BE9002B33FB /* JUI */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		C2C863E42C734BBB002B33FB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C25852622C6F875E00B0521C /* HomeView.swift */,
+				C2C863EB2C736939002B33FB /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C2C863E62C73518B002B33FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +164,10 @@
 			dependencies = (
 			);
 			name = JCanyon;
+			packageProductDependencies = (
+				C2C863E72C73518B002B33FB /* JUI */,
+				C2C863E92C73518F002B33FB /* JFoundation */,
+			);
 			productName = JCanyon;
 			productReference = C258525D2C6F875E00B0521C /* JCanyon.app */;
 			productType = "com.apple.product-type.application";
@@ -253,7 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C25852632C6F875E00B0521C /* ContentView.swift in Sources */,
+				C25852632C6F875E00B0521C /* HomeView.swift in Sources */,
+				C2C863EC2C736939002B33FB /* HomeViewModel.swift in Sources */,
 				C25852612C6F875E00B0521C /* JCanyonApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +443,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"JCanyon/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "I need the location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -441,6 +472,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"JCanyon/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "I need the location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -571,6 +603,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C2C863E72C73518B002B33FB /* JUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JUI;
+		};
+		C2C863E92C73518F002B33FB /* JFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C25852552C6F875D00B0521C /* Project object */;
 }

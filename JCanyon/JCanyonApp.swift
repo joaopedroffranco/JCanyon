@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import JFoundation
+import JUI
 
 @main
 struct JCanyonApp: App {
+	private var locationManager: LocationManagerProtocol = LocationManager()
+	
 	var body: some Scene {
 		WindowGroup {
-			ContentView()
+			HomeView(
+				viewModel: HomeViewModel(
+					mapViewModel: MapViewModel(),
+					locationManager: locationManager
+				)
+			)
 		}
 	}
 }
