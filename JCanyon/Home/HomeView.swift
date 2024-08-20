@@ -10,11 +10,7 @@ import JUI
 import MapKit
 
 struct HomeView: View {
-	@ObservedObject private var viewModel: HomeViewModel
-	
-	init(viewModel: HomeViewModel) {
-		self.viewModel = viewModel
-	}
+	@StateObject private var viewModel = HomeViewModel(mapViewModel: MapViewModel())
 	
 	var body: some View {
 		MapView(viewModel: viewModel.mapViewModel)
@@ -22,10 +18,20 @@ struct HomeView: View {
 			.navigationTitle("My Bikes")
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
-				Button {
-					viewModel.addBike()
-				} label: {
-					Image(systemName: "plus")
+				ToolbarItem(placement: .navigationBarTrailing) {
+					Button {
+						viewModel.addBike()
+					} label: {
+						Image(systemName: "plus")
+					}
+				}
+				
+				ToolbarItem(placement: .navigationBarLeading) {
+					NavigationLink {
+						LenghtView()
+					} label: {
+						Text("Length")
+					}
 				}
 			}
 	}
@@ -33,6 +39,6 @@ struct HomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-		HomeView(viewModel: HomeViewModel(mapViewModel: MapViewModel(current: nil)))
+		HomeView()
 	}
 }

@@ -16,12 +16,7 @@ struct JCanyonApp: App {
 	var body: some Scene {
 		WindowGroup {
 			NavigationView {
-				HomeView(
-					viewModel: HomeViewModel(
-						mapViewModel: MapViewModel(),
-						locationManager: locationManager
-					)
-				)
+				LenghtView()
 			}
 		}
 	}

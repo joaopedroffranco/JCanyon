@@ -15,6 +15,8 @@
 		C2C863E82C73518B002B33FB /* JUI in Frameworks */ = {isa = PBXBuildFile; productRef = C2C863E72C73518B002B33FB /* JUI */; };
 		C2C863EA2C73518F002B33FB /* JFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = C2C863E92C73518F002B33FB /* JFoundation */; };
 		C2C863EC2C736939002B33FB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C863EB2C736939002B33FB /* HomeViewModel.swift */; };
+		C2C863F02C74E1A1002B33FB /* LenghtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C863EF2C74E1A1002B33FB /* LenghtView.swift */; };
+		C2C863F22C74E423002B33FB /* LengthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C863F12C74E423002B33FB /* LengthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		C2C863E32C6F89B8002B33FB /* JFoundation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JFoundation; sourceTree = "<group>"; };
 		C2C863E52C734BE9002B33FB /* JUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JUI; sourceTree = "<group>"; };
 		C2C863EB2C736939002B33FB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C2C863EF2C74E1A1002B33FB /* LenghtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenghtView.swift; sourceTree = "<group>"; };
+		C2C863F12C74E423002B33FB /* LengthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		C258525F2C6F875E00B0521C /* JCanyon */ = {
 			isa = PBXGroup;
 			children = (
+				C2C863ED2C74E17C002B33FB /* Conversions */,
 				C2C863E42C734BBB002B33FB /* Home */,
 				C25852602C6F875E00B0521C /* JCanyonApp.swift */,
 				C25852642C6F876300B0521C /* Assets.xcassets */,
@@ -146,6 +151,23 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2C863ED2C74E17C002B33FB /* Conversions */ = {
+			isa = PBXGroup;
+			children = (
+				C2C863EE2C74E17F002B33FB /* Lenght */,
+			);
+			path = Conversions;
+			sourceTree = "<group>";
+		};
+		C2C863EE2C74E17F002B33FB /* Lenght */ = {
+			isa = PBXGroup;
+			children = (
+				C2C863EF2C74E1A1002B33FB /* LenghtView.swift */,
+				C2C863F12C74E423002B33FB /* LengthViewModel.swift */,
+			);
+			path = Lenght;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,9 +304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C863F02C74E1A1002B33FB /* LenghtView.swift in Sources */,
 				C25852632C6F875E00B0521C /* HomeView.swift in Sources */,
 				C2C863EC2C736939002B33FB /* HomeViewModel.swift in Sources */,
 				C25852612C6F875E00B0521C /* JCanyonApp.swift in Sources */,
+				C2C863F22C74E423002B33FB /* LengthViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
