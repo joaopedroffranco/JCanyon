@@ -27,6 +27,16 @@ class HomeViewModel: ObservableObject {
 		locationManager.requestAuthorizationIfNeeded()
 	}
 	
+	func addBike() {
+		let currentLoc = locationManager.currentLocation.value
+		let currentLat = currentLoc?.coordinate.latitude ?? .zero
+		let currentLong = currentLoc?.coordinate.longitude ?? .zero
+		let margin = 0.1
+		let randomLat = Double.random(in: currentLat-margin...currentLat+margin)
+		let randomLong = Double.random(in: currentLong-margin...currentLong+margin)
+		mapViewModel.add(Pin(CLLocationCoordinate2D(latitude: randomLat, longitude: randomLong)))
+	}
+	
 	private func setupPublishers() {
 		mapViewModel.setupObservers()
 		

@@ -19,6 +19,15 @@ struct HomeView: View {
 	var body: some View {
 		MapView(viewModel: viewModel.mapViewModel)
 			.task { viewModel.onAppear() }
+			.navigationTitle("My Bikes")
+			.navigationBarTitleDisplayMode(.inline)
+			.toolbar {
+				Button {
+					viewModel.addBike()
+				} label: {
+					Image(systemName: "plus")
+				}
+			}
 	}
 }
 

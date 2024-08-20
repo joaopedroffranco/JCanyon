@@ -37,7 +37,13 @@ public class MapViewModel: ObservableObject {
 	public func setupObservers() {
 		Publishers
 			.CombineLatest($current, $pins)
-			.map { _ in self.calculateRegion(from: self.allPins) }
+			.map { (current, pins) in
+				guard let current = current else {
+					return self.calculateRegion(from: pins)
+				}
+				
+				return self.calculateRegion(from: [current] + pins)
+			}
 			.assign(to: &$region)
 	}
 	
@@ -49,7 +55,7 @@ public class MapViewModel: ObservableObject {
 		guard !pins.isEmpty else {
 			return MKCoordinateRegion(
 				center: .init(latitude: .zero, longitude: .zero),
-				span: .init(latitudeDelta: 1000, longitudeDelta: 1000)
+				span: .init(latitudeDelta: 10, longitudeDelta: 10)
 			)
 		}
 		var minLat = 90.0
@@ -65,10 +71,12 @@ public class MapViewModel: ObservableObject {
 			if loc.longitude > maxLong { maxLong = loc.longitude }
 		}
 		
-		return MKCoordinateRegion(
+		let region = MKCoordinateRegion(
 			center: .init(latitude: (minLat + maxLat) / 2, longitude: (minLong + maxLong) / 2),
-			span: .init(latitudeDelta: maxLat - minLat, longitudeDelta: maxLong - minLong)
+			span: .init(latitudeDelta: (maxLat - minLat) * 1.1, longitudeDelta: (maxLong - minLong) * 1.1)
 		)
+		
+		return region
 	}
 }
 
